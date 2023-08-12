@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-purple-400">
+    <header class="w-full">
+        <h1 class="text-5xl text-center pb-5 my-5">let's do some thing with DOM</h1>
+        <section class="added-part w-11/12 md:h-3/4 text-center mx-auto rounded-lg p-5 md:p-10 border-2 border-purple-700">
+            <h1 class="text-4xl">Added Part</h1>
+            <div class="text-left mt-8">
+                <label class="text-2xl" for="text">Add Header</label>
+                <input id="product-title" class="text-xl rounded-lg w-full p-3 mt-3 bg-purple-100 mb-5" type="text">
+                <label class="text-2xl" for="text">Add Description</label><br>
+                <textarea id="product-description" class="text-xl rounded-lg w-full p-3 mt-3 mb-5 bg-purple-100" name="" id="" cols="" rows="5"></textarea>
+                <label class="text-2xl mr-5" for="text">Add Image</label>
+                <input id="product-img" class="text-xl w-full md:w-1/2 rounded-lg p-3 bg-purple-100"  name="" id="">
+            </div>
+            <button onclick="addFunction()" class="btn mt-8 bg-purple-900 text-white px-10 py-5 text-2xl rounded" type="submit">Add Now</button>
+        </section>
+    </header>
+
+    <main id="main" class="main-section w-11/12 md:h-3/4 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div class="p-2 border-2 rounded-md mt-5 border-pink-400">
+            <img class="w-full h-[400px] rounded" src="download.jfif" alt="">
+            <h1 class="text-xl">Nature Pictures</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos ducimus culpa impedit odit nostrum labore ad aliquid magnam, earum deleniti.</p>
+            <button class="btn my-5 bg-purple-900 text-white px-8 py-4 text-2xl rounded" type="reset">Remove product</button>
+        </div>
+    </main>
+
+    <script>
+
+        function addFunction(){
+            const productTitle=document.getElementById("product-title").value;
+            const productDescription=document.getElementById("product-description").value;
+            const productImg=document.getElementById("product-img").value;
+
+            const main = document.getElementById("main");
+            const product=document.createElement("div");
+            product.innerHTML=
+            `
+                <div class="p-2 border-2 rounded-md mt-5 border-pink-400">
+                    <img class="w-full h-[400px] rounded" src="${productImg}" alt="">
+                    <h1 class="text-xl">${productTitle}</h1>
+                    <p>${productDescription}</p>
+                    <button class="btn my-5 bg-purple-900 text-white px-8 py-4 text-2xl rounded" type="reset">Remove product</button>
+                </div>
+            `
+            main.appendChild(product);
+        }
+
+    </script>
+</body>
+</html>
